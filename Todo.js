@@ -1,6 +1,12 @@
 let inputs = document.getElementById("inp");
 let text = document.querySelector(".text");
 
+inputs.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        Add();
+    }
+});
+
 function Add(){
     if(inputs.value == ""){
         alert("Please Enter Task")
@@ -15,3 +21,5 @@ function Add(){
         }
     }
 }
+
+document.getElementById("addButton").addEventListener("click",Add);
