@@ -1,19 +1,25 @@
-let input = document.getElementById("inp");  // Fix variable name (singular "input" makes more sense)
-let text = document.querySelector(".text");  // Container for task list
+// Select input field and task container
+let input = document.getElementById("inp");
+let textContainer = document.querySelector(".text");
 
 function Add() {
-    if (input.value.trim() === "") {  // Trim to avoid spaces-only input
-        alert("Please enter a task");
-    } else {
-        let newEle = document.createElement("li");  // Use <li> instead of <ul>
-        newEle.innerHTML = `${input.value} <i class="fa-solid fa-trash"></i>`;
+    // Trim input to prevent adding empty spaces as tasks
+    let task = input.value.trim();
 
-        text.appendChild(newEle);
+    if (task === "") {
+        alert("Please enter a task!");
+    } else {
+        // Create a new task element
+        let newTask = document.createElement("li");
+        newTask.innerHTML = `${task} <i class="fa-solid fa-trash"></i>`;
+
+        // Append task to the text container
+        textContainer.appendChild(newTask);
         input.value = ""; // Clear input field after adding task
 
         // Add event listener for remove functionality
-        newEle.querySelector("i").addEventListener("click", function () {
-            newEle.remove();
+        newTask.querySelector("i").addEventListener("click", function () {
+            newTask.remove();
         });
     }
 }
