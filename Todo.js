@@ -19,6 +19,15 @@ function Add(){
         function remove(){
             newEle.remove()
         }
+        let checkbox = newEle.querySelector(".task-checkbox");
+        let taskText = newEle.querySelector(".task-text");
+        checkbox.addEventListener("change", function() {
+            if (checkbox.checked) {
+                taskText.classList.add("completed"); // Mark as completed
+            } else {
+                taskText.classList.remove("completed"); // Mark as incomplete
+            }
+        });
     }
 }
 
